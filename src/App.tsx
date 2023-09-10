@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import SortItems from "./components/SortItems";
 import ListItems from "./components/ListItems";
 import CartItemsList from "./components/CartItemsList";
+import Delivery from "./components/Delivery";
 import ProceedToPayment from "./components/ProceedToPayment";
 import "../public/styles.css";
 import PaymentButton from "./components/PaymentButton";
@@ -40,6 +41,7 @@ const App: React.FC = () => {
         <Routes >
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/delivery" element={<Delivery />} />
             <Route path="/" element={isLogin ? <>
                 <Header />
                 {isFilter && <SortItems />}

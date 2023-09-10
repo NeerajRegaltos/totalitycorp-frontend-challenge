@@ -1,23 +1,39 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
 const ProceedToPayment = () => {
 
-    type ty = {
+    const navigate = useNavigate();
+
+    type addressType = {
         house: string;
         locality: string;
         pincode: string;
         state: string;
         mobile: string;
     }
+    type cardType = {
+        cardNumber: string,
+        startDate: string,
+        expiryDate: string,
+        code: string,
+    }
 
-    const [address, setAddress] = useState<ty>({
+    const [address, setAddress] = useState<addressType>({
         house: "",
         locality: "",
         pincode: "",
         state: "",
         mobile: ""
+    });
+
+    const [card, setCard] = useState<cardType>({
+        cardNumber: "",
+        startDate: "",
+        expiryDate: "",
+        code: "",
     });
     const [disable, setDisable] = useState(true);
 
@@ -40,6 +56,39 @@ const ProceedToPayment = () => {
 
     }
 
+    const cardDetail = (e: any) => {
+        const name = e.target.name;
+        const val = e.target.value;
+
+        setCard({
+            ...card,
+            [name]: val
+        })
+    }
+
+    const ProceedToPay = (e: any) => {
+        try {
+            e.preventDefault();
+            for (let k in card) {
+                const val = card[k]?.trim();
+                if (val.length <= 0) {
+                    alert("Please fill all the fields");
+                    return;
+                }
+            }
+            alert("Payment has been made successfully");
+
+            navigate("/delivery", {
+                state: {
+                    address
+                }
+            });
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
 
     return <>
         <div className="position-relative">
@@ -66,16 +115,16 @@ const ProceedToPayment = () => {
             <form style={{ padding: "10px", border: "0.5px solid black", width: "500px", margin: "10px", backgroundColor: !disable ? "white" : "grey" }} >
                 Payment Methods
                 <br />
-                <input type="number" placeholder="Card Number" className="shippingAddress" style={{ width: "415px" }} disabled={disable} />
+                <input type="number" placeholder="Card Number" name="cardNumber" className="shippingAddress" style={{ width: "415px" }} disabled={disable} onChange={cardDetail} />
                 <br />
-                <input type="number" placeholder="Start Date" className="shippingAddress" disabled={disable} />
+                <input type="number" placeholder="Start Date" name="startDate" className="shippingAddress" disabled={disable} onChange={cardDetail} />
 
-                <input type="number" placeholder="Expiry Date" className="shippingAddress" disabled={disable} />
+                <input type="number" placeholder="Expiry Date" name="expiryDate" className="shippingAddress" disabled={disable} onChange={cardDetail} />
                 <br />
-                <input type="number" placeholder="4 digits Code" className="shippingAddress" disabled={disable} />
+                <input type="number" placeholder="4 digits Code" name="code" className="shippingAddress" disabled={disable} onChange={cardDetail} />
 
                 <br />
-                <button className="btn btn-primary" disabled={disable}>Proceed to pay</button>
+                <button className="btn btn-primary" disabled={disable} onClick={ProceedToPay}>Proceed to pay</button>
             </form>
 
         </div>
