@@ -1,0 +1,26 @@
+.shippingAddress {
+    margin: 10px;
+    padding: 8px;
+}
+
+#deleteItem {
+    border: none;
+    background-color: white;
+}
+
+.navbar-brand{
+    border: none;
+    background-color: rgb(250, 248, 248);
+}
+
+.category:hover{
+    cursor: pointer;
+}
+
+.priceRange:hover{
+    cursor: pointer;
+}
+
+.starRange:hover{
+    cursor: pointer;
+}
