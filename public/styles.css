@@ -1,3 +1,7 @@
+.mainContent {
+    overflow-x: hidden;
+}
+
 .shippingAddress {
     margin: 10px;
     padding: 8px;
@@ -8,19 +12,140 @@
     background-color: white;
 }
 
-.navbar-brand{
+.navbar-brand {
     border: none;
     background-color: rgb(250, 248, 248);
 }
 
-.category:hover{
+.category:hover {
     cursor: pointer;
 }
 
-.priceRange:hover{
+.priceRange:hover {
     cursor: pointer;
 }
 
-.starRange:hover{
+.starRange:hover {
     cursor: pointer;
+}
+
+input {
+    border-radius: 10px;
+}
+
+.custom-card {
+    width: 18rem;
+    height: 28rem;
+}
+
+.custom-card img {
+    height: 15rem;
+    width: 18rem;
+}
+
+.profile-img{
+    width: 2.5rem;
+    border-radius: 50%;
+}
+
+.heyy{
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 480px) {
+    .custom-card {
+        width: 15rem;
+        height: 25rem;
+    }
+    .col-auto{
+        margin-left: 0.5rem;
+    }
+    .custom-card img {
+        height: 12rem;
+        width: 15rem;
+    }
+    .card-title{
+        font-size: 18px;
+    }
+    .card-text{
+        font-size: 15px;
+    }
+    .card-body button{
+        font-size: 12px;
+    }
+    .filters{
+        font-size: 0.8rem;
+        width: 300px;
+    } 
+    .navbar-brand{
+        font-size: 18px;
+    }
+    .cartBtn{
+        font-size: 12px;
+    }
+
+    .logout{
+        font-size: 12px;
+    }
+    .profile-img{
+        width: 1.7rem;
+        border-radius: 50%;
+    }
+    .sorting button{
+        font-size: 14px;
+    }
+    .sorting ul{
+        font-size: 14px;
+    }
+}
+
+
+
+@media screen and (min-width: 481px) and (max-width: 810px) {
+    .custom-card {
+        width: 15rem;
+        height: 25rem;
+    }
+    .col-auto{
+        margin-left: 0.5rem;
+    }
+    .custom-card img {
+        height: 12rem;
+        width: 15rem;
+    }
+    .card-title{
+        font-size: 18px;
+    }
+    .card-text{
+        font-size: 15px;
+    }
+    .card-body button{
+        font-size: 12px;
+    }
+    .filters{
+        font-size: 1rem;
+        width: 300px;
+    } 
+    .navbar-brand{
+        font-size: 18px;
+    }
+    .cartBtn{
+        font-size: 12px;
+    }
+
+    .logout{
+        font-size: 12px;
+    }
+    .profile-img{
+        width: 1.7rem;
+        border-radius: 50%;
+    }
+    .sorting button{
+        font-size: 14px;
+    }
+    .sorting ul{
+        font-size: 14px;
+    }
+
 }

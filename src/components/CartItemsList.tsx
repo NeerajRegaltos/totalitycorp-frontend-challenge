@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setCartItemCount, setRemoveItem, updateCartList } from "../redux/reducer/cartReducer";
+import PaymentButton from "./PaymentButton";
 
 
 
@@ -71,7 +72,7 @@ const CartItemsList = () => {
 
     return <>
 
-        <div className="card mb-3" style={{ width: "850px" }}>
+        <div className="card mb-3" style={{width: "50rem"}}>
             {
                 cartList && cartList?.length === 0 ?
                     <>
@@ -88,7 +89,7 @@ const CartItemsList = () => {
                                 <div className="col-md-4">
                                     <img src={cart.thumbnail} style={{ height: "12rem", width: "15rem" }} className="img-fluid rounded-start" alt={cart.brand} />
                                 </div>
-                                <div className="col-md-8">
+                                <div className="col-md-8 w-50">
                                     <div className="card-body">
                                         <h5 className="card-title">{cart.title?.slice(0, 20)}</h5>
                                         <p className="card-text">{(cart.description)?.slice(0, 50)}{cart.description?.length > 50 ? "..." : ""}</p>
@@ -97,6 +98,7 @@ const CartItemsList = () => {
                                         <button className="card-text" id="deleteItem" onClick={() => deleteItem(index)}>Delete</button>
                                     </div>
                                 </div>
+                                <hr />
                             </div>
                         </>
                     })
@@ -105,14 +107,17 @@ const CartItemsList = () => {
         </div>
         {
             cartList?.length !== 0 &&
-            <div className="row">
-                <div className="col-9"></div>
-                <div className="col-3">
+            <div className=" mt-3 ms-3">
+
+                
                     <p>Subtotal ( {cartItemCount} items): ₹{calculateTotal()}</p>
-                </div>
+        
             </div>
         }
 
+        <div>
+            {cartList?.length !== 0 && <PaymentButton />}
+        </div>
 
 
     </>

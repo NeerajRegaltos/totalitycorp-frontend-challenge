@@ -22,12 +22,12 @@ const Delivery = () => {
 
     return <>
         <Header />
-        <div className="">
+        <div className="p-5">
             <h3>Order has been placed successfully.</h3>
 
             <br />
-            <h4>Expected delivery Date : {deliveryDate}</h4><br />
-            <h4>Delivery Address: <h3>{address.house} {address.locality} {address.pincode} {address.state} </h3></h4>
+            <h4>Expected delivery Date : <span style={{fontWeight:"bold"}}>{deliveryDate}</span></h4><br />
+            <h4>Delivery Address: <span style={{fontWeight:"bold"}}>{address.house} {address.locality} {address.pincode} {address.state} </span></h4>
             <br />
             <Link to={"/"}>Shop Here</Link>
         </div>

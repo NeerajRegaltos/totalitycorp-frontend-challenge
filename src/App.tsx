@@ -6,7 +6,6 @@ import CartItemsList from "./components/CartItemsList";
 import Delivery from "./components/Delivery";
 import ProceedToPayment from "./components/ProceedToPayment";
 import "../public/styles.css";
-import PaymentButton from "./components/PaymentButton";
 import SideBar from "./components/SideBar";
 import * as Products from "../public/productData/product.json";
 import { useDispatch, useSelector } from "react-redux";
@@ -45,7 +44,7 @@ const App: React.FC = () => {
             <Route path="/" element={isLogin ? <>
                 <Header />
                 {isFilter && <SortItems />}
-                <div className="mt-5 container-fluid" >
+                <div className="mt-5 container-fluid mainContent" >
                     <div className="row">
                         <div className="col-2">
                             <SideBar />
@@ -57,18 +56,16 @@ const App: React.FC = () => {
                     </div>
 
                 </div>
-            </> : <> <Header /><div style={{ padding: "20px", margin: "20px" }}> <Link to={"/login"}><button className="btn btn-primary">Login</button></Link> <Link to={"/register"}><button className="btn btn-primary">Register</button></Link></div></>} />
+            </> : <> <Header /><div style={{ padding: "20px", marginTop: "15%" }} className="text-center"> <Link to={"/login"} style={{ marginRight: "40px" }}><button className="btn btn-primary">Login</button></Link> <Link to={"/register"}><button className="btn btn-primary">Register</button></Link></div></>} />
             <Route path="/cart" element={
                 <>
                     <Header />
                     <br />
-                    <div style={{ display: "flex" }}>
-                        <div>
+                    <div style={{ display: "flex" }} className="mainContent">
+                        <div className="w-50">
                             <CartItemsList />
                         </div>
-                        <div>
-                            {cartList?.length !== 0 && <PaymentButton />}
-                        </div>
+
                     </div>
                 </>} />
             <Route path="/payment" element={<>

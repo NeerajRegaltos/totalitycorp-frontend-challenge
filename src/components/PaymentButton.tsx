@@ -6,14 +6,8 @@ const PaymentButton = () => {
     const navigate = useNavigate();
 
     return <>
-        <div className="row">
-            <div className="col-1">
-
-            </div>
-            <div className="col">
-                <button className="btn bg-warning" onClick={() => navigate("/payment") }>Proceed to Payment</button>
-            </div>
-
+        <div className="mb-5 ms-3">
+            <button className="btn bg-warning" onClick={() => navigate("/payment")}>Proceed to Payment</button>
         </div>
 
     </>

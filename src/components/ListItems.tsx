@@ -45,16 +45,16 @@ const ListItems: React.FC = () => {
     })
 
     return <>
-        <div className="container-fluid">
+        <div className="container-fluid" style={{marginLeft: "10px"}}>
 
             <div className="row">
 
                 {
                     data.length > 0 ?
                         data.map((product: any, index: number) => {
-                            return <div className="col mt-1 mb-3" key={product.id}>
-                                <div className="card" style={{ width: "18rem", height: "28rem" }}>
-                                    <img src={product.thumbnail} style={{ height: "15rem", width: "18rem" }} className="card-img-top" alt={product.brand} />
+                            return <div className="col-auto mt-1 mb-3" key={product.id}>
+                                <div className="card custom-card">
+                                    <img src={product.thumbnail} className="card-img-top" alt={product.brand} />
                                     <div className="card-body">
                                         <h5 className="card-title">{product.title.slice(0, 20)}</h5>
                                         <p className="card-text">{(product.description).slice(0, 50)}{product.description.length > 50 ? "..." : ""}</p>

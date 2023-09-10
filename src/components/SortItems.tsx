@@ -34,7 +34,7 @@ const SortItems = () => {
 
     return <>
         <div className="position-relative mt-2 me-3">
-            <div className="btn-group position-absolute top-0 end-0">
+            <div className="btn-group position-absolute top-0 end-0 sorting">
                 <button className="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     Sort by:
                 </button>

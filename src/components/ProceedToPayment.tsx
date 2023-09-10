@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetCart, setCartItemCount } from "../redux/reducer/cartReducer";
 
@@ -22,6 +22,7 @@ const ProceedToPayment = () => {
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
+    const isLogin = useSelector((state:any) => state.user.isLogin)
 
     const [address, setAddress] = useState<addressType>({
         house: "",
@@ -94,14 +95,19 @@ const ProceedToPayment = () => {
 
     }
 
+    useEffect(()=>{
+        if(!isLogin){
+            navigate("/login");
+        }
+    }, [])
+
     return <>
-        <div className="position-relative">
-
-
-            <form style={{ padding: "10px", border: "0.5px solid black", width: "500px", margin: "10px" }}>
+        <div className="container position-relative mainContent mt-5">
+            <h3 className="mb-3 ms-2">Shipping Address & Payment</h3>
+            <form style={{ padding: "10px", border: "0.5px solid black", margin: "10px" }} className="mb-5">
                 Shipping Address
                 <br />
-                <input type="text" placeholder="House Number" className="shippingAddress" style={{ width: "415px" }} onChange={(e) => setAddress({ ...address, house: e.target.value })} />
+                <input type="text" placeholder="House Number" className="shippingAddress  w-75" onChange={(e) => setAddress({ ...address, house: e.target.value })} />
                 <br />
                 <input type="text" placeholder="Locality Name" className="shippingAddress" onChange={(e) => setAddress({ ...address, locality: e.target.value })} />
 
@@ -112,14 +118,14 @@ const ProceedToPayment = () => {
                 <input type="number" placeholder="Mobile Number" className="shippingAddress" onChange={(e) => setAddress({ ...address, mobile: e.target.value })} />
 
                 <br />
-                <button className="btn btn-primary" onClick={verifyAddress} id="liveToastBtn">Add Addrress</button>
+                <button className="btn btn-primary ms-2" onClick={verifyAddress} id="liveToastBtn">Add Addrress</button>
             </form>
 
 
-            <form style={{ padding: "10px", border: "0.5px solid black", width: "500px", margin: "10px", backgroundColor: !disable ? "white" : "grey" }} >
+            <form style={{ padding: "10px", border: "0.5px solid black", margin: "10px", backgroundColor: !disable ? "white" : "grey" }}>
                 Payment Methods
                 <br />
-                <input type="number" placeholder="Card Number" name="cardNumber" className="shippingAddress" style={{ width: "415px" }} disabled={disable} onChange={cardDetail} />
+                <input type="number" placeholder="Card Number" name="cardNumber" className="shippingAddress w-75" disabled={disable} onChange={cardDetail} />
                 <br />
                 <input type="number" placeholder="Start Date" name="startDate" className="shippingAddress" disabled={disable} onChange={cardDetail} />
 
@@ -128,7 +134,7 @@ const ProceedToPayment = () => {
                 <input type="number" placeholder="4 digits Code" name="code" className="shippingAddress" disabled={disable} onChange={cardDetail} />
 
                 <br />
-                <button className="btn btn-primary" disabled={disable} onClick={ProceedToPay}>Proceed to pay</button>
+                <button className="btn btn-primary ms-2" disabled={disable} onClick={ProceedToPay}>Proceed to pay</button>
             </form>
 
         </div>

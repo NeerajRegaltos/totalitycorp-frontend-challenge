@@ -63,7 +63,8 @@ const Register = () => {
         <div className="container">
             <div className="row">
                 <div className="col d-flex justify-content-center mt-5">
-                    <form style={{ width: "20rem" }} className="text-center">
+                    <form style={{ width: "20rem" }}>
+                    <h2 className="text-center mb-5">Register</h2>
                         <div className="mb-3">
                             <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
                             <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name" onChange={handleChange} />
@@ -85,7 +86,7 @@ const Register = () => {
 
 
                         <button type="submit" className="btn btn-primary" onClick={registerUser}>Register</button>
-                        <p><Link to={"/login"}>Have account? login here</Link></p>
+                        <p className="mt-5"><Link to={"/login"}>Have account? login here</Link></p>
                     </form>
                 </div>
             </div>

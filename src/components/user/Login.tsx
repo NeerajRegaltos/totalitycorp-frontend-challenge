@@ -72,8 +72,11 @@ const Login = () => {
     return <>
         <Header />
         <div className="row">
+
             <div className="col d-flex justify-content-center mt-5">
+
                 <form style={{ width: "20rem" }}>
+                    <h2 className="text-center mb-5">Login</h2>
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                         <input type="email" className="form-control" id="exampleInputEmail1" name="email" onChange={handleChange} aria-describedby="emailHelp" />
@@ -85,7 +88,7 @@ const Login = () => {
                     </div>
 
                     <button type="submit" className="btn btn-primary" onClick={loginUser}>Login</button>
-                    <p><Link to={"/register"}>Don't have account? register here</Link></p>
+                    <p className="mt-5"><Link to={"/register"}>Don't have account? register here</Link></p>
 
                 </form>
             </div>
