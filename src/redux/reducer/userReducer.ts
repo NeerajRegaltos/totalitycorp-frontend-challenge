@@ -21,7 +21,7 @@ const userSlice = createSlice({
             email: "",
             password: ""
         },
-        isLogin: true,
+        isLogin: false,
         allUsers: []
     },
     reducers: {
