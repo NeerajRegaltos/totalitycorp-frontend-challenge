@@ -17,7 +17,7 @@ const productSlice = createSlice({
         setFilteredData: (state, action) => {
             state.filteredData = action.payload;
         },
-        setIsFilter: (state: any, action: any) => {
+        setIsFilter: (state: { isFilter: boolean }, action: { payload: boolean }) => {
             state.isFilter = action.payload;
         }
     }

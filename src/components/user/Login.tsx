@@ -6,8 +6,11 @@ import { setIsLogin, setUserData } from "../../redux/reducer/userReducer";
 
 
 const Login = () => {
-
-    const [data, setData] = useState({
+    type userLogin = {
+        email: string,
+        password: string
+    }
+    const [data, setData] = useState<userLogin>({
         email: "",
         password: ""
     })

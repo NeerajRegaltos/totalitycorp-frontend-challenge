@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilteredData, setIsFilter } from "../redux/reducer/productReducer";
+import { setFilteredData } from "../redux/reducer/productReducer";
 
 
 

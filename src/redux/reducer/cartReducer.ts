@@ -18,14 +18,14 @@ const cartSlice = createSlice({
         addIntoCartList: (state: any, action: any): void => {
             state.cartList.push(action.payload);
         },
-        updateCartList: (state: any, action: any): void => {
+        updateCartList: (state: { cartList: [] }, action: { payload: { id: number, data: {} } }): void => {
             const { id, data } = action.payload;
             state.cartList.splice(id, 1, data);
         },
-        setRemoveItem: (state: any, action: any): void => {
+        setRemoveItem: (state: { cartList: [] }, action: { payload: number }): void => {
             state.cartList.splice(action.payload, 1);
         },
-        setCartItemCount: (state: any, action: any): void => {
+        setCartItemCount: (state: { cartItemCount: number }, action: { payload: number }): void => {
             state.cartItemCount = action.payload;
         }
     }

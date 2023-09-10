@@ -1,5 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+type userDataType = {
+    name: string,
+    img: string,
+    email: string,
+    password: string
+}
+
+type userType = {
+    userData: userDataType,
+    allUsers: {}[]
+}
 
 const userSlice = createSlice({
     name: "user",
@@ -14,14 +25,14 @@ const userSlice = createSlice({
         allUsers: []
     },
     reducers: {
-        setUserData: (state: any, action: any) => {
+        setUserData: (state: userType, action: { payload: userDataType }) => {
             state.userData = action.payload;
             if (action.payload.name !== "") {
                 state.allUsers.push(action.payload);
             }
 
         },
-        setIsLogin: (state: any, action: any) => {
+        setIsLogin: (state: { isLogin: boolean }, action: { payload: boolean }) => {
             state.isLogin = action.payload;
         }
     }
