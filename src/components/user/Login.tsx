@@ -47,6 +47,7 @@ const Login = () => {
                             dispatch(setUserData(user));
                             dispatch(setIsLogin(true));
                             navigate("/");
+                            return;
                         } else {
                             alert("Password is wrong");
                             return;

@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setIsLogin, setUserData } from "../redux/reducer/userReducer";
+import { resetCart, setCartItemCount } from "../redux/reducer/cartReducer";
 
 
 const Header = () => {
@@ -21,6 +22,9 @@ const Header = () => {
             email: ""
         }));
         dispatch(setIsLogin(false));
+
+        dispatch(setCartItemCount(0));
+        dispatch(resetCart());
 
     }
 

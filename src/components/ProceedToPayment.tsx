@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { resetCart, setCartItemCount } from "../redux/reducer/cartReducer";
 
-
+type addressType = {
+    house: string;
+    locality: string;
+    pincode: string;
+    state: string;
+    mobile: string;
+}
+type cardType = {
+    cardNumber: string,
+    startDate: string,
+    expiryDate: string,
+    code: string,
+}
 
 const ProceedToPayment = () => {
 
     const navigate = useNavigate();
 
-    type addressType = {
-        house: string;
-        locality: string;
-        pincode: string;
-        state: string;
-        mobile: string;
-    }
-    type cardType = {
-        cardNumber: string,
-        startDate: string,
-        expiryDate: string,
-        code: string,
-    }
+    const dispatch = useDispatch();
 
     const [address, setAddress] = useState<addressType>({
         house: "",
@@ -83,6 +85,8 @@ const ProceedToPayment = () => {
                     address
                 }
             });
+            dispatch(setCartItemCount(0));
+            dispatch(resetCart());
 
         } catch (error) {
             console.log(error)
